@@ -17,6 +17,29 @@ function isAuth(req, res, next) {
 
 
 
+//edit
+router.post(
+  "/editprofile",
+  isAuth,
+  uploadCloud.single("profilePic"),
+  (req, res, next) => {
+    console.log(req.body);
+    console.log(req.file);
+    if (req.file) {
+      req.body.profilePic = req.file.secure_url;
+    }
+    User.findByIdAndUpdate(req.user._id, { ...req.body })
+      .then(response => {
+        res.status(200).json({
+          message: "Changes updated sucessfully",
+          usere: req.user.profilePic
+        });
+      })
+      .catch(e => console.log(e));
+  }
+);
+
+
 
 
 //Sign up
@@ -40,7 +63,7 @@ router.post("/login", passport.authenticate("local"), (req, res, next) => {
 
 
 //Privates
-router.get("/children", isAuth, (req, res, next) => {
+router.get("/private", isAuth, (req, res, next) => {
   res.status(200).json({ message: "Access granted", user: req.user });
 });
 
