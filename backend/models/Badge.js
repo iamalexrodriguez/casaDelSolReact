@@ -3,9 +3,10 @@ const Schema = mongoose.Schema
 
 
 let badgeSchema = new Schema({
-  description: String,
-  activeIcon: String,
-  unActiveIcon: String,
+  title: String,
+  photoUrl: String,
+  description: String
+
 },{
   timestamps: true,
   versionKey: false

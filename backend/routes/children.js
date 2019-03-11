@@ -2,6 +2,7 @@ const router = require("express").Router();
 const User = require("../models/User");
 const Child = require("../models/Child");
 const Post = require("../models/Post");
+const Badge = require("../models/Badge")
 const uploadCloud = require("../helpers/cloudinary");
 // let { sendUpdateEmail } = require("../helpers/mailer");
 
@@ -14,10 +15,18 @@ function isAuth(req, res, next) {
   }
 }
 
+router.get('/badgesAll',  async (req, res, next) => {
+  try {
+    let badges = await Badge.find()
+    res.status(200).json(badges)
+  }
+  catch (e) {
+    next(e)
+  }
+})
 
 
-
-router.get('/',  async (req, res, next) => {
+router.get('/childrenAll',  async (req, res, next) => {
   try {
     let children = await Child.find()
     res.status(200).json(children)
@@ -25,6 +34,18 @@ router.get('/',  async (req, res, next) => {
   catch (e) {
     next(e)
   }
+})
+
+
+router.post('/addBadge', (req,res,next)=>{
+  Badge.create({...req.body})
+    .then(response =>{
+      res.status(201).json({
+        message: "Badge added sucessfully"
+      })
+    })
+
+    .catch(e=> console.log(e))
 })
 
 

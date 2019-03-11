@@ -4,6 +4,8 @@ const User = require("../models/User");
 const passport = require("passport");
 const uploadCloud = require("../helpers/cloudinary");
 
+const {sendNewMail} = require('../helpers/mailer')
+
 
 //Middle wares
 
@@ -15,6 +17,21 @@ function isAuth(req, res, next) {
   }
 }
 
+
+
+
+
+//
+router.post("/sendnewmail",  (req, res, next) => {
+
+  sendNewMail()
+  .then(
+  res.status(200).json()
+  )
+  .catch(
+    e => console.log(e)
+  )
+});
 
 
 //edit

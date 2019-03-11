@@ -41,8 +41,8 @@ class App extends Component {
           </NavLink>
 
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: "bolder" }} to="/beers/random">
-            Random Beer
+          <NavLink activeStyle={{ fontWeight: "bolder" }} to="/children">
+            Ahijados
           </NavLink>
 
           <span> | </span>

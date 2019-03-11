@@ -7,6 +7,7 @@ import Signup from "./components/Signup.jsx";
 import Profile from "./components/Profile";
 import ProfileEdit from "./components/ProfileEdit.jsx";
 import SponsorNew from "./components/SponsorNew.jsx";
+import Children from "./components/Children/Children.jsx"
 // import Beers from "./components/Beers";
 // import DetailBeer from "./components/DetailBeer";
 // import DetailRandomBeer from "./components/DetailRandomBeer";
@@ -22,6 +23,8 @@ export default ({isLogged, logIn, logOut, user})=>(
        
        
         <Route path="/sponsornew" render={props=> <SponsorNew {...props} user={user} /> }/>
+
+        <Route path="/children" render={props => <Children {...props} user={user} />} />
 
 
         <Route exact path="/profile" render={(props => <Profile {...props} user={user} />)} />
