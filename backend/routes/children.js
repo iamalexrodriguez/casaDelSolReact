@@ -63,7 +63,7 @@ router.post("/add", uploadCloud.single("profilePic"), (req, res, next) => {
 
 
 
-
+//Para popular Child.find().populate("sponsorChilderen")
 
 
 module.exports = router;

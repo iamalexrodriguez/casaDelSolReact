@@ -113,7 +113,7 @@ class App extends Component {
     const { isLogged ,user } = this.state;
 
     return (
-      <div>
+      <div className="background">
       <div>
        {this.drawNavs()}
           <h1>Casa del Sol</h1>
