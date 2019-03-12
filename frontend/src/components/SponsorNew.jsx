@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Steps, Button } from 'antd'
+import { Steps } from 'antd'
+import toastr from 'toastr'
 import axios from 'axios'
 import AboutYou from './SponsorNewComp/AboutYou';
 import AboutChild from './SponsorNewComp/AboutChild'
@@ -70,6 +71,11 @@ class App extends Component {
 
 
 
+
+    
+
+
+
     onSubmit = () => {
         const current = this.state.current + 1
         let { user } = this.props
@@ -83,9 +89,9 @@ class App extends Component {
             user,
             form
         }
+        toastr.success('Solicitud enviada, ganaste un award!');
+
         console.log(data)
-        //haces tu relajo de axios
-        //Convertir a servicio
         axios.post(emailUrl, data, { withCredentials: true })
             .then(res => console.log(res))
             .catch(e => console.log(e));

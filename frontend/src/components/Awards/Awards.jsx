@@ -71,5 +71,3 @@ let badgeStyle = {
 
 }
 
-//todos en gris
-//

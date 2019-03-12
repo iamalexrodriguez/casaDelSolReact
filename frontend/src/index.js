@@ -5,6 +5,7 @@ import App from './App.jsx';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom"
 import 'antd/dist/antd.css'
+import 'toastr/build/toastr.css'
 
 let WithRouter = () =>(
     <BrowserRouter>

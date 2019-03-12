@@ -49,8 +49,6 @@ export default class ProfileEdit extends React.Component {
 
   render() {
     let { user, /* updateUser */ } = this.props;
-    // if(!updatedUser) return <div>Hey</div>
-    // if (updateUser) user.profilePic = updateUser.profilePic;
     return (
       <div>
         <img src={user.profilePic} alt="profilepic" height="250" />

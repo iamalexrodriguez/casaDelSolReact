@@ -23,10 +23,14 @@ function isAuth(req, res, next) {
 
 //
 router.post("/sendnewmail",  (req, res, next) => {
-
-  sendNewMail()
-  .then(
-  res.status(200).json()
+  let {username, email}  = req.body.user
+  let {about, ahijado, compromiso} = req.body.form
+  let emailTo = "casadelsolmailing@gmail.com"
+  //Como saco el props y el user?
+  sendNewMail(emailTo, username, email, about, ahijado, compromiso)
+  .then((r) => {
+    res.status(200).json(r)
+  }
   )
   .catch(
     e => console.log(e)
