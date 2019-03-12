@@ -40,7 +40,6 @@ export default class Awards extends Component {
                 <h3>{badge.title}</h3>
 
                 <img src={badge.photoUrl} alt="badgeImage" style={styles} />
-                <p>{badge.description}</p>
 
             </div>
         })

@@ -13,19 +13,14 @@ export default class ProfileEdit extends React.Component {
 
   handleChange = e => {
     let { updateUser } = this.state;
-    console.log(e.target.files);
     if (e.target.files) updateUser.profilePic = e.target.files[0];
     else updateUser[e.target.name] = e.target.value;
     this.setState({ updateUser });
-    console.log(this.props.user);
-    console.log("Change to")
-    console.log(this.state.updateUser);
   };
 
   submit = () => {
     let { user } = this.props;
     let { updateUser } = this.state;
-    console.log(updateUser)
     if (updateUser.profilePic) {
     this.uploadImage(updateUser.profilePic, url)
       .then(res => {
