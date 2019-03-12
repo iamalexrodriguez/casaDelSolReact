@@ -32,6 +32,10 @@ export default class Awards extends Component {
                 styles = badgeStyle.imageBadgeStyle
             }
 
+            else if(user.awards.includes("Nuevo ahijado") && badge.title === "Nuevo ahijado"){
+                styles = badgeStyle.imageBadgeStyle
+            }
+
             
 
         

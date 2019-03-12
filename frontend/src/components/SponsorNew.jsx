@@ -71,14 +71,10 @@ class App extends Component {
 
 
 
-
-    
-
-
-
     onSubmit = () => {
         const current = this.state.current + 1
         let { user } = this.props
+        user.awards.push("Nuevo ahijado")
         let { info1, info2, info3 } = this.state
         let form = {}
         form['about'] = info1.text

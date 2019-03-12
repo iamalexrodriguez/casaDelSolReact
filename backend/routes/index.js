@@ -27,10 +27,12 @@ router.post("/sendnewmail",  (req, res, next) => {
   let {about, ahijado, compromiso} = req.body.form
   let emailTo = "casadelsolmailing@gmail.com"
   //Como saco el props y el user?
+  
   sendNewMail(emailTo, username, email, about, ahijado, compromiso)
   .then((r) => {
     res.status(200).json(r)
   }
+  
   )
   .catch(
     e => console.log(e)
