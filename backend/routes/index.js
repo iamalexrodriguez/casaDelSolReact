@@ -1,10 +1,10 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const User = require("../models/User");
 const passport = require("passport");
 const uploadCloud = require("../helpers/cloudinary");
 
-const {sendNewMail} = require('../helpers/mailer')
+const { sendNewMail } = require('../helpers/mailer')
 
 
 //Middle wares
@@ -22,22 +22,36 @@ function isAuth(req, res, next) {
 
 
 //
-router.post("/sendnewmail",  (req, res, next) => {
-  let {username, email}  = req.body.user
-  let {about, ahijado, compromiso} = req.body.form
+router.post("/sendnewmail", (req, res, next) => {
+  let { username, email, _id } = req.body.user
+  let { about, ahijado, compromiso } = req.body.form
   let emailTo = "casadelsolmailing@gmail.com"
   //Como saco el props y el user?
-  
-  sendNewMail(emailTo, username, email, about, ahijado, compromiso)
-  .then((r) => {
-    res.status(200).json(r)
-  }
-  
-  )
-  .catch(
-    e => console.log(e)
-  )
+  console.log(req.body)
+
+  let promise1 = sendNewMail(emailTo, username, email, about, ahijado, compromiso)
+  let promise2 = User.findByIdAndUpdate(_id, req.body.user)
+
+  Promise.all([promise1, promise2])
+    .then((r) => {
+      res.status(200).json(r)
+    })
+    .catch(
+      e => console.log(e)
+    )
 });
+
+router.post("/updateuser", (req, res, next) => {
+
+  let {_id} = req.body.user
+  User.findByIdAndUpdate(_id, req.body.user)
+        .then((r) => {
+          res.status(200).json(r)
+        })
+        .catch(
+          e => console.log(e)
+        )
+})
 
 
 //edit

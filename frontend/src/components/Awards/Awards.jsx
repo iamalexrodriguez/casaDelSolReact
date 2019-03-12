@@ -5,9 +5,6 @@ const url = "http://localhost:3000/children/badgesAll"
 export default class Awards extends Component {
     state = {
         badges: [],
-        firstLogin: false,
-        firstSponsoredChild: false,
-        letterSent: false
 
     }
 
@@ -33,6 +30,14 @@ export default class Awards extends Component {
             }
 
             else if(user.awards.includes("Nuevo ahijado") && badge.title === "Nuevo ahijado"){
+                styles = badgeStyle.imageBadgeStyle
+            }
+
+            else if(user.awards.includes("Una carta enviada") && badge.title === "Una carta enviada"){
+                styles = badgeStyle.imageBadgeStyle
+            }
+
+            else if(user.awards.includes("¡Tu primera visita!") && badge.title === "¡Tu primera visita!"){
                 styles = badgeStyle.imageBadgeStyle
             }
 

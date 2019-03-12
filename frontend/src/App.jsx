@@ -3,7 +3,6 @@ import Routes from "./Routes.jsx";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import './App.css';
-import toastr from 'toastr'
 let loginUrl = "http://localhost:3000/login";
 let logoutURL = "http://localhost:3000/logout";
 const url = "http://localhost:3000/private";
