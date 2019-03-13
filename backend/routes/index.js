@@ -124,11 +124,11 @@ router.get("/logout", isAuth, (req, res, next) => {
 });
 
 
-router.get("/*", (req, res) => {
+*/router.get("/*", (req, res) => {
   //let i = path.join(__dirname, '../public/index.html')
   //console.log(i)
   res.send("El backend esta listo")
   //res.sendFile(path.join(__dirname, '../public/index.html'))
-})
+})*/
 
 module.exports = router;
