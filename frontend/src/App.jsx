@@ -30,7 +30,7 @@ class App extends Component {
     let { isLogged } = this.state;
     if (isLogged) {
       return (
-        <div>
+        <div style={navStyle}>
           <NavLink activeStyle={{ fontWeight: "bolder" }} exact to="/">
             Home
           </NavLink>
@@ -63,7 +63,7 @@ class App extends Component {
       );
     } else {
       return (
-        <nav>
+        <nav style={navStyle}>
           <NavLink activeStyle={{ fontWeight: "bolder" }} exact to="/">
             Home
           </NavLink>
@@ -106,6 +106,14 @@ class App extends Component {
     .catch(e => console.log(e))
   }
 
+  drawFooter = () =>{
+    return(
+      <div>
+        this is the footer
+      </div>
+    )
+  }
+
 
 
 
@@ -113,15 +121,30 @@ class App extends Component {
     const { isLogged ,user } = this.state;
 
     return (
-      <div className="background">
       <div>
-       {this.drawNavs()}
-          <h1>Casa del Sol</h1>
-          <Routes isLogged={isLogged} logIn={this.logIn} logOut={this.logOut} user={user} />
-        </div>
+          <div>
+          {this.drawNavs()}
+              <img src="https://res.cloudinary.com/alexrodriguezcloud/image/upload/v1552451448/casaDelSol/Logo-Casa-del-Sol-jpg_1.png" style={imageStyle} alt="logo"/>
+              <Routes isLogged={isLogged} logIn={this.logIn} logOut={this.logOut} user={user} />
+          {this.drawFooter()}
+          </div>
       </div>
     );
   }
 }
 
 export default App;
+
+
+
+let navStyle ={
+  padding:"10px",
+  float:"right"
+
+}
+
+let imageStyle={
+  height:"55px",
+  padding:"5px"
+
+}

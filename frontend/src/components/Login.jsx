@@ -16,6 +16,7 @@ class Login extends React.Component {
     let { message, auth } = this.state;
     return (
       <div>
+        <form action="">
         <input
           type="email"
           name="email"
@@ -29,10 +30,11 @@ class Login extends React.Component {
           placeholder="password"
           onChange={this.handleChange}
         />
+        </form>
         <br />
         <p style={{ color: "red" }}> {message} </p>
         <button onClick={() => this.props.logIn(auth)}>Log in</button>
-      </div>
+        </div>
     );
   }
 }

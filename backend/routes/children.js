@@ -3,6 +3,7 @@ const User = require("../models/User");
 const Child = require("../models/Child");
 const Post = require("../models/Post");
 const Badge = require("../models/Badge")
+const mongoose = require('mongoose')
 const uploadCloud = require("../helpers/cloudinary");
 // let { sendUpdateEmail } = require("../helpers/mailer");
 
@@ -14,6 +15,37 @@ function isAuth(req, res, next) {
     res.status(401).json({ message: "You haven't logged in yet." });
   }
 }
+
+// router.get("/:id", (req,res,next) =>{
+//   const {id} = req.params
+//   User.findById()
+
+// })
+
+
+router.get('/sponsoredchildren', async (req, res, next) => {
+  try {
+    let usponsored = await User.aggregate([
+      {
+        '$lookup': {
+          'from': 'children', 
+          'localField': 'sponsoredChildren', 
+          'foreignField': '_id', 
+          'as': 'sponsoredChildren'
+        }
+      }, {
+        '$match': {
+          '_id': mongoose.Types.ObjectId(req.user._id)
+        }
+      }
+    ])
+    res.status(200).json(usponsored)
+  }
+  catch (e) {
+    next(e)
+  }
+})
+
 
 router.get('/badgesAll',  async (req, res, next) => {
   try {

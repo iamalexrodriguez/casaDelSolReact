@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 const url = "http://localhost:3000/children/badgesAll"
 
+
 export default class Awards extends Component {
     state = {
         badges: [],
@@ -17,7 +18,6 @@ export default class Awards extends Component {
     drawBadges = () => {
         let { badges } = this.state
         let { user } = this.props
-        console.log(this.props)
         return badges.map((badge, key) => {
             let styles = badgeStyle.simple
 
@@ -57,7 +57,6 @@ export default class Awards extends Component {
 
 
     render() {
-        console.log(this.state)
         return (
             <div style={{display:"flex"}}>
                 {this.drawBadges()}

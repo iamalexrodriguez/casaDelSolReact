@@ -8,12 +8,7 @@ let childSchema = new Schema(
       required: true
     },
     profilePic: String,
-    pictureGallery: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Post"
-      }
-    ],
+    pictureGallery: [String],
     bio: String,
     interests: String,
     birthdate: Date,
