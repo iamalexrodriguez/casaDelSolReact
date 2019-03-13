@@ -19,9 +19,9 @@ class Child extends Component {
     }
 
     render() {
-        let { name, profilePic, pictureGallery } = this.props
+        let { name, profilePic } = this.props
         let { open, customGallery, current } = this.state
-        console.log(pictureGallery)
+        console.log(this.state)
         return (
             <div>
                 <div>
@@ -40,8 +40,8 @@ class Child extends Component {
                             this.setState({ current: c })
                         }}
                     />
-                    <img onClick={() => this.setState({ open: true })} style={{ width: "200px" }} src={profilePic} alt="photochild" />
-                    <div>{name} </div>
+                    <img onClick={() => this.setState({ open: true })} style={imageStyle} src={profilePic} alt="photochild" />
+                    <h2 styles={nameStyle}>{name} </h2>
                 </div>
             </div>
         )
@@ -50,3 +50,15 @@ class Child extends Component {
 }
 
 export default Child;
+
+
+const imageStyle ={
+    width:"30vw",
+    borderRadius: "5%",
+    cursor: "pointer",
+    boxShadow:"13px 14px 13px -8px rgba(0,0,0,0.58)",
+}
+
+const nameStyle = {
+    padding:"20px"
+}

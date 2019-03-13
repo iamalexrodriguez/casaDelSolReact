@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {Input, Button} from 'antd'
 let url = 'http://localhost:3000/signup'
 
 class Signup extends React.Component {
@@ -13,7 +14,7 @@ class Signup extends React.Component {
         newUser[e.target.name] = e.target.value
         //validations
         errors = {}
-        if (newUser.password !== newUser.password2) errors.password = "Passwords don't match"
+        if (newUser.password !== newUser.password2) errors.password = "Tus contraseñas no coinciden"
         this.setState({newUser, errors})
     }
     
@@ -28,19 +29,38 @@ class Signup extends React.Component {
     render() {
         let {errors} = this.state
         return (
-            <div>
-                <input type="text" name="username" placeholder="username" onChange={this.handleChange}/>
+            <div style={formStyle}>
+            <form action="">
+                <h3>Crea tu cuenta</h3>
                 <br/>
-                <input type="email" name="email" placeholder="email" onChange={this.handleChange}/>
-                <br/>
-                <input type="password" name="password" placeholder="password" onChange={this.handleChange}/>
-                <br/>
-                <input type="password" name="password2" placeholder="password2" onChange={this.handleChange}/>
+                <Input style={inputStyle} type="text" name="username" placeholder="Nombre de usuario" onChange={this.handleChange}/>
+                <br/><br/>
+            
+                <Input style={inputStyle} type="email" name="email" placeholder="Correo electrónico" onChange={this.handleChange}/>
+                <br/><br/>
+            
+                <Input style={inputStyle} type="password" name="password" placeholder="Contraseña" onChange={this.handleChange}/>
+                <br/><br/>
+                
+                <Input style={inputStyle} type="password" name="password2" placeholder="Confirma tu contraseña" onChange={this.handleChange}/>
                 <p style={{color:"red"}}>{errors.password}</p>
-                <button onClick={this.sendToServer}>Sign Up</button>
+                <Button onClick={this.sendToServer}>Sign Up</Button>
+                </form>
             </div>
         )
     }
 }
+
+let inputStyle = {
+    width: "30vw",
+    padding:"10px"
+}
+
+let formStyle = {
+  paddingTop:"60px",
+  display:"flex",
+  justifyContent: "center"
+}
+
 
 export default Signup

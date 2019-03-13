@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import { Input, Cascader } from 'antd'
+import { Input, Cascader, Button } from 'antd'
 import toastr from 'toastr'
 import axios from 'axios'
 let url = "http://localhost:3000/children/childrenAll"
 let updateUrl = "http://localhost:3000/updateuser"
+
+
 
 const { TextArea } = Input
 
@@ -62,20 +64,30 @@ class NewMail extends Component {
     render() {
 
         return (
-            <div>
+            <div  >
+                <form style={formStyle}>
                 <p>¿A quién le damos tu mensaje?</p>
-                <Cascader options={this.state.options} onChange={this.onChange} placeholder="¿A quién le enviamos tu mensaje?" />
-
+                <br/>
+                <Cascader options={this.state.options} onChange={this.onChange} placeholder="Busca aquí" />
+                <br/>
                 <p>Tu mensaje:</p>
                 <TextArea placeholder="Tus ahijados" autosize={{ minRows: 2, maxRows: 20 }} />
-                <button onClick={this.onSubmit}>Enviar</button>
+                <Button onClick={this.onSubmit} type="primary" ghost>Enviar</Button>
 
-
+                </form>
 
             </div>
         )
     }
 }
 
+
+let formStyle = {
+    paddingTop:"20px",
+    display:"flex",
+    flexWrap: "wrap",
+    width:"30vw"
+
+  }
 
 export default NewMail

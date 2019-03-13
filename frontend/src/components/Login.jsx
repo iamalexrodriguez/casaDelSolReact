@@ -1,4 +1,5 @@
 import React from "react";
+import { Input , Button} from 'antd';
 
 class Login extends React.Component {
   state = {
@@ -15,28 +16,44 @@ class Login extends React.Component {
   render() {
     let { message, auth } = this.state;
     return (
-      <div>
+      <div style={formStyle}>
+      
         <form action="">
-        <input
+        <p>Tu email:</p>
+        <Input
+          style={inputStyle}
           type="email"
           name="email"
           placeholder="email"
           onChange={this.handleChange}
         />
         <br />
-        <input
+        <p>Tu contraseña:</p>
+        <Input
+          style={inputStyle}
           type="password"
           name="password"
           placeholder="password"
           onChange={this.handleChange}
         />
-        </form>
-        <br />
         <p style={{ color: "red" }}> {message} </p>
-        <button onClick={() => this.props.logIn(auth)}>Log in</button>
+        <br />
+        <Button style={{}}onClick={() => this.props.logIn(auth)}>Log in</Button>
+        </form>
         </div>
     );
   }
+}
+
+let inputStyle = {
+    width: "30vw",
+    padding:"8px"
+}
+
+let formStyle = {
+  paddingTop:"60px",
+  display:"flex",
+  justifyContent: "center"
 }
 
 export default Login;

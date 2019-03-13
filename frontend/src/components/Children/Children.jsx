@@ -4,6 +4,7 @@ import Child from './Child';
 import Awards from '../Awards/Awards'
 import NewMail from '../Forms/NewMail'
 import NewVisit from '../Forms/NewVisit'
+import {Button} from 'antd'
 let url = "http://localhost:3000/children/sponsoredchildren"
 
 export default class Children extends Component {
@@ -39,7 +40,7 @@ export default class Children extends Component {
         if (displayAwards === true) {
             return (<Awards  children={children} toggleDisplayAwards={this.toggleDisplayAwards} user={this.props.user}/>)
         } else {
-            return <button onClick={this.toggleDisplayAwards}>Ver awards</button>
+            return <Button type="primary" styles={{height:"50px"}}  size={"large"} onClick={this.toggleDisplayAwards}>Ver awards</Button>
         }
 
     }
@@ -66,7 +67,7 @@ export default class Children extends Component {
         if(displayMail === true){
             return(<NewMail toggleDisplayMail={this.toggleDisplayMail} user={this.props.user} />)
         } else {
-            return <button onClick={this.toggleDisplayMail}>Enviar un mensaje</button>
+            return <Button size={"large"} onClick={this.toggleDisplayMail}>Enviar un mensaje</Button>
         }
     } 
 
@@ -75,7 +76,7 @@ export default class Children extends Component {
         if(displayDates === true){
             return(<NewVisit toggleDisplayVisit={this.toggleDisplayVisit} user={this.props.user} />)
         } else{
-            return <button onClick={this.toggleDisplayVisit}>Agendar una visita</button>
+            return <Button  size={"large"} onClick={this.toggleDisplayVisit}>Agendar una visita</Button>
         }
 
     }
@@ -84,13 +85,16 @@ export default class Children extends Component {
 
     render() {
         let { children } = this.state
+        let {username} = this.props.user
         console.log(children.sponsoredChildren)
         return (
             <div>
-                <h3>Tus ahijados..</h3>
-                {this.drawDisplayAwards()}
-                {this.drawDisplayMail()}
-                {this.drawDisplayDates()}
+                <h1>¡Bienvenido, {username}!  </h1>
+                <div style={{float:"right"}}>
+                    {this.drawDisplayAwards()}
+                    {this.drawDisplayMail()}
+                    {this.drawDisplayDates()}
+                </div>
                 <div>
 
                     {children.sponsoredChildren.map(this.drawChild)}

@@ -46,13 +46,8 @@ class App extends Component {
           </NavLink>
 
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: "bolder" }} to="/beers/new">
-            Add beer
-          </NavLink>
-
-          <span> | </span>
           <NavLink activeStyle={{ fontWeight: "bolder" }} to="/profile">
-            Profile
+            Perfil
           </NavLink>
 
           <span> | </span>

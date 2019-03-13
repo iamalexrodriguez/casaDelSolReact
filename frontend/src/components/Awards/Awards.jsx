@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {Button} from 'antd'
 const url = "http://localhost:3000/children/badgesAll"
 
 
@@ -41,6 +42,10 @@ export default class Awards extends Component {
                 styles = badgeStyle.imageBadgeStyle
             }
 
+            else if(user.sponsoredChildren.length > 2 && badge.title === "Tres ahijados"){
+                styles = badgeStyle.imageBadgeStyle
+            }
+
             
 
         
@@ -60,7 +65,7 @@ export default class Awards extends Component {
         return (
             <div style={{display:"flex"}}>
                 {this.drawBadges()}
-                <button onClick={this.props.toggleDisplayAwards}>Ocultar</button>
+                <Button type="primary" onClick={this.props.toggleDisplayAwards} ghost>Ocultar</Button>
             </div>
         )
     }

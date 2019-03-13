@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { DatePicker} from 'antd'
+import { DatePicker, Button} from 'antd'
 import toastr from 'toastr'
 import axios from 'axios'
 import locale from 'antd/lib/date-picker/locale/es_ES';
@@ -36,9 +36,9 @@ class NewVisit extends Component{
     render(){
         return(
             <div>
-                <p>The dates will go here</p>
+                <h2>¡Programa tu visita!</h2>
                 <DatePicker locale={locale} onChange={this.onChange} />
-                <button onClick={this.onSubmit}>Enviar</button>
+                <Button onClick={this.onSubmit}>Enviar</Button>
             </div>
         )
     }
