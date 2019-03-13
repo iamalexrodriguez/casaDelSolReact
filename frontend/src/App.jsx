@@ -121,7 +121,7 @@ class App extends Component {
           {this.drawNavs()}
               <img src="https://res.cloudinary.com/alexrodriguezcloud/image/upload/v1552451448/casaDelSol/Logo-Casa-del-Sol-jpg_1.png" style={imageStyle} alt="logo"/>
               <Routes isLogged={isLogged} logIn={this.logIn} logOut={this.logOut} user={user} />
-          {this.drawFooter()}
+
           </div>
       </div>
     );

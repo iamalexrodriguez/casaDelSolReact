@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Input, Button } from 'antd'
 let url = "http://localhost:3000/editprofile";
 const serviceUpload = axios.create({ url, withCredentials: true });
 
@@ -50,12 +51,12 @@ export default class ProfileEdit extends React.Component {
   render() {
     let { user, /* updateUser */ } = this.props;
     return (
-      <div>
+      <div style={formStyle}>
         <img src={user.profilePic} alt="profilepic" height="250" />
         <input name="profilePic" type="file" onChange={this.handleChange} />
         <h3>
-          Nombre de usuario :{" "}
-          <input
+          Nuevo nombre de usuario :{" "}
+          <Input
             name="username"
             type="text"
             placeholder={user.username}
@@ -63,8 +64,8 @@ export default class ProfileEdit extends React.Component {
           />
         </h3>
         <p>
-          Email:{" "} 
-           <input
+          Nuevo email:{" "} 
+           <Input
             name="email"
             type="text"
             placeholder={user.email}
@@ -72,10 +73,20 @@ export default class ProfileEdit extends React.Component {
           />
         </p>
         <Link to="/profile">
-          <button>Cancel</button>
+          <Button>Cancel</Button>
         </Link>
-        <button onClick={this.submit}>Save Changes</button>
+        <br/>
+        <Button type="primary" onClick={this.submit}>Save Changes</Button>
       </div>
     );
   }
+}
+
+
+
+let formStyle = {
+  paddingTop:"60px",
+  display:"flex",
+  flexDirection:"column",
+  alignItems: "center"
 }

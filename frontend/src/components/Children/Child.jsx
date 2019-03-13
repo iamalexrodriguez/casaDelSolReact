@@ -11,7 +11,7 @@ class Child extends Component {
 
     componentDidMount() {
         let gallery = []
-        this.props.pictureGallery.map(source => {
+        this.props.pictureGallery.forEach(source => {
             let elem = { src: source }
             gallery.push(elem)
         })

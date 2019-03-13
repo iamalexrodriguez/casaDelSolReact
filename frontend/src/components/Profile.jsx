@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import {Button} from 'antd';
 let url = "http://localhost:3000/private";
 
 
@@ -28,12 +29,20 @@ export default class Profile extends React.Component {
         let { profilePic, username, email } = this.state.user
         console.log(this.state.user)
         return (
-            <div>
-                <img src={profilePic} alt="profilepic" height="250" />
-                <h3>Nombre de usuario : {username}</h3>
-                <p>Email: {email}</p>
-                <Link to="/profile/edit"><button>Edit</button></Link>
+            <div style={formStyle}>
+                <img src={profilePic} alt="profilepic" style={{height:"40vh", borderRadius: "10px"}} />
+                <h3>  <strong>Nombre de usuario :</strong>   {username}</h3>
+                <p> <strong>Email:</strong>  {email}</p>
+                <Link to="/profile/edit"><Button>Edit</Button></Link>
             </div>
         )
     }
 }
+
+
+let formStyle = {
+    paddingTop:"60px",
+    display:"flex",
+    flexDirection:"column",
+    alignItems: "center"
+  }

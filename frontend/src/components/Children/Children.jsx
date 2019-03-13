@@ -81,12 +81,17 @@ export default class Children extends Component {
 
     }
 
+    showNoKids = () =>{
+
+    }
+
 
 
     render() {
         let { children } = this.state
         let {username} = this.props.user
         console.log(children.sponsoredChildren)
+        if(children.sponsoredChildren.length === 0) return <div style={messageStyle}> <h1>Aún no tienes ahijados</h1></div>
         return (
             <div>
                 <h1>¡Bienvenido, {username}!  </h1>
@@ -104,4 +109,9 @@ export default class Children extends Component {
             </div>
         )
     }
+}
+
+
+let messageStyle={
+    textAlign: "center"
 }
