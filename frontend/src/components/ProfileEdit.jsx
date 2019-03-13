@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Input, Button } from 'antd'
-let url = "http://localhost:3000/editprofile";
-const serviceUpload = axios.create({ url, withCredentials: true });
+// let url = "http://localhost:3000/editprofile";
+let urlDeploy = "https://casadelsolpueblareact.herokuapp.com/editprofile"
+const serviceUpload = axios.create({ urlDeploy, withCredentials: true });
 
 export default class ProfileEdit extends React.Component {
   state = {
@@ -23,25 +24,25 @@ export default class ProfileEdit extends React.Component {
     let { user } = this.props;
     let { updateUser } = this.state;
     if (updateUser.profilePic) {
-    this.uploadImage(updateUser.profilePic, url)
+    this.uploadImage(updateUser.profilePic, urlDeploy)
       .then(res => {
         console.log(res)
       })
       .catch(e => console.log(e));
     }
     if(user.username !== updateUser.username || user.email !== updateUser.email){
-      axios.post(url, {...updateUser}, { withCredentials: true })
+      axios.post(urlDeploy, {...updateUser}, { withCredentials: true })
         .then(res=> console.log(res))
         .catch(e => console.log(e));
     }
     this.props.history.push('/profile')
   };
 
-  uploadImage = (file, url) => {
+  uploadImage = (file, urlDeploy) => {
     let formData = new FormData();
     formData.append("profilePic", file);
     return serviceUpload
-      .post(url, formData, {
+      .post(urlDeploy, formData, {
         headers: { enctype: "multipart/form-data" }
       })
       .then(res => res.data)

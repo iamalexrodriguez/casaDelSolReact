@@ -5,8 +5,8 @@ import Awards from '../Awards/Awards'
 import NewMail from '../Forms/NewMail'
 import NewVisit from '../Forms/NewVisit'
 import { Button } from 'antd'
-let url = "http://localhost:3000/children/sponsoredchildren"
-//let url = "https://herokue"
+// let url = "http://localhost:3000/children/sponsoredchildren"
+let urlDeploy = "https://casadelsolpueblareact.herokuapp.com/children/sponsoredchildren"
 
 export default class Children extends Component {
     state = {
@@ -17,7 +17,7 @@ export default class Children extends Component {
     }
 
     componentDidMount() {
-        axios.get(url, { withCredentials: true })
+        axios.get(urlDeploy, { withCredentials: true })
             .then(res =>
                 this.setState({ children: res.data[0] })
             )

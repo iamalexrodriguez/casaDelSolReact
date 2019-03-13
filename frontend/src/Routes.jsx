@@ -8,10 +8,7 @@ import Profile from "./components/Profile";
 import ProfileEdit from "./components/ProfileEdit.jsx";
 import SponsorNew from "./components/SponsorNew.jsx";
 import Children from "./components/Children/Children.jsx"
-// import Beers from "./components/Beers";
-// import DetailBeer from "./components/DetailBeer";
-// import DetailRandomBeer from "./components/DetailRandomBeer";
-// import NewBeer from "./components/NewBeer";
+
 
 
 export default ({isLogged, logIn, logOut, user})=>(

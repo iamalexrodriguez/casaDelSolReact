@@ -3,7 +3,9 @@ import { DatePicker, Button} from 'antd'
 import toastr from 'toastr'
 import axios from 'axios'
 import locale from 'antd/lib/date-picker/locale/es_ES';
-let updateUrl = "http://localhost:3000/updateuser"
+// let updateUrl = "http://localhost:3000/updateuser"
+
+const updateurldeploy = "https://casadelsolpueblareact.herokuapp.com/private"
 
 class NewVisit extends Component{
     state = {
@@ -23,7 +25,7 @@ class NewVisit extends Component{
         toastr.success('Fecha agendada, ganaste un award!');
 
         this.props.toggleDisplayVisit()
-        axios.post(updateUrl, data, { withCredentials: true })
+        axios.post(updateurldeploy, data, { withCredentials: true })
         .then(res => console.log(res))
         .catch(e => console.log(e));
 

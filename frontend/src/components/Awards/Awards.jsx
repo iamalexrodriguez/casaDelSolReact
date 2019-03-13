@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Button} from 'antd'
-const url = "http://localhost:3000/children/badgesAll"
+// const url = "http://localhost:3000/children/badgesAll"
+let urlDeploy = "https://casadelsolpueblareact.herokuapp.com/children/badgesAll"
 
 
 export default class Awards extends Component {
@@ -11,7 +12,7 @@ export default class Awards extends Component {
     }
 
     componentDidMount() {
-        axios.get(url)
+        axios.get(urlDeploy)
             .then(res => this.setState({ badges: res.data }))
             .catch(e => console.log(e))
     }

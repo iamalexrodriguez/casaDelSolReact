@@ -2,14 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {Button} from 'antd';
-let url = "http://localhost:3000/private";
+// let url = "http://localhost:3000/private";
+const urldeploy = "https://casadelsolpueblareact.herokuapp.com/private"
+
 
 
 export default class Profile extends React.Component {
     state = {user:{}}
 
     componentDidMount(){
-        axios.get(url, {withCredentials: true})
+        axios.get(urldeploy, {withCredentials: true})
             .then(res => {
                 this.setState({user: res.data.user})
                 this.forceUpdate()
@@ -18,7 +20,7 @@ export default class Profile extends React.Component {
     }
                     
     componentWillReceiveProps(){
-        axios.get(url, {withCredentials: true})
+        axios.get(urldeploy, {withCredentials: true})
         .then(res => {
             this.setState({user: res.data.user})
             this.forceUpdate()})

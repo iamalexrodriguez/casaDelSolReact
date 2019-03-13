@@ -5,7 +5,8 @@ import axios from 'axios'
 import AboutYou from './SponsorNewComp/AboutYou';
 import AboutChild from './SponsorNewComp/AboutChild'
 import AboutCommitment from './SponsorNewComp/AboutCommitment'
-let emailUrl = "http://localhost:3000/sendnewmail";
+// let emailUrl = "http://localhost:3000/sendnewmail";
+const emailurldeploy = "https://casadelsolpueblareact.herokuapp.com/sendnewmail"
 
 
 class App extends Component {
@@ -88,7 +89,7 @@ class App extends Component {
         toastr.success('Solicitud enviada, ganaste un award!');
 
         console.log(data)
-        axios.post(emailUrl, data, { withCredentials: true })
+        axios.post(emailurldeploy, data, { withCredentials: true })
             .then(res => console.log(res))
             .catch(e => console.log(e));
     }

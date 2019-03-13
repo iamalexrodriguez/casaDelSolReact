@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import {Input, Button} from 'antd'
-let url = 'http://localhost:3000/signup'
+// let url = 'http://localhost:3000/signup'
+let urldeploy = "https://casadelsolpueblareact.herokuapp.com/signup"
 
 class Signup extends React.Component {
     state = {
@@ -21,7 +22,7 @@ class Signup extends React.Component {
     sendToServer = () => {
         let {newUser, errors} = this.state
         if(errors === {}) return 
-        axios.post(url, newUser)
+        axios.post(urldeploy, newUser)
         .then(res =>this.props.history.push('/login'))
         .catch(e => console.log(e))
     }

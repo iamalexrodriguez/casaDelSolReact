@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import { Input, Cascader, Button } from 'antd'
 import toastr from 'toastr'
 import axios from 'axios'
-let url = "http://localhost:3000/children/childrenAll"
-let updateUrl = "http://localhost:3000/updateuser"
-
+// let url = "http://localhost:3000/children/childrenAll"
+// let updateUrl = "http://localhost:3000/updateuser"
+let urlDeploy = "https://casadelsolpueblareact.herokuapp.com/children/childrenAll"
+let updateUrlDeploy = "https://casadelsolpueblareact.herokuapp.com/updateuser"
 
 
 const { TextArea } = Input
@@ -20,7 +21,7 @@ class NewMail extends Component {
 
     componentDidMount() {
         const { options } = this.state
-        axios.get(url)                                                              
+        axios.get(urlDeploy)                                                              
             .then(res => {
                 const children = res.data
                 children.map(child => options.push({ value: child.name, label: child.name }))
@@ -48,7 +49,7 @@ class NewMail extends Component {
         toastr.success('Solicitud enviada, ganaste un award!');
 
         this.props.toggleDisplayMail()
-        axios.post(updateUrl, data, { withCredentials: true })
+        axios.post(updateUrlDeploy, data, { withCredentials: true })
         .then(res => console.log(res))
         .catch(e => console.log(e));
 

@@ -3,9 +3,17 @@ import Routes from "./Routes.jsx";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import './App.css';
-let loginUrl = "http://localhost:3000/login";
-let logoutURL = "http://localhost:3000/logout";
-const url = "http://localhost:3000/private";
+// let loginUrl = "http://localhost:3000/login";
+// let logoutURL = "http://localhost:3000/logout";
+// const url = "http://localhost:3000/private";
+
+let loginUrlDeploy = "https://casadelsolpueblareact.herokuapp.com/login"
+let logoutURLDeploy = "https://casadelsolpueblareact.herokuapp.com/logout"
+const urldeploy = "https://casadelsolpueblareact.herokuapp.com/private"
+
+
+
+
 
 class App extends Component {
   state = {
@@ -15,7 +23,7 @@ class App extends Component {
 
   checkLogged = () => {
     axios
-      .get(url, { withCredentials: true })
+      .get(urldeploy, { withCredentials: true })
       .then(res => {
         this.setState({ isLogged: true , user : res.data.user});
         this.render();
@@ -83,7 +91,7 @@ class App extends Component {
 
   logIn = auth => {
     axios
-      .post(loginUrl, auth, { withCredentials: true })
+      .post(loginUrlDeploy, auth, { withCredentials: true })
       .then(res => {
         this.setState({ isLogged: true , user:res.data })
       })
@@ -94,7 +102,7 @@ class App extends Component {
   };
 
   logOut = () =>{
-    axios.get(logoutURL , {withCredentials:true})
+    axios.get(logoutURLDeploy , {withCredentials:true})
     .then(res => {
         this.setState({isLogged:false}) 
       })
