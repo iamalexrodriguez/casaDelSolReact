@@ -27,7 +27,6 @@ export default class Profile extends React.Component {
 
     render() {
         let { profilePic, username, email } = this.state.user
-        console.log(this.state.user)
         return (
             <div style={formStyle}>
                 <img src={profilePic} alt="profilepic" style={{height:"40vh", borderRadius: "10px"}} />

@@ -34,7 +34,6 @@ class NewMail extends Component {
         let {childToSend} = this.state
         childToSend = value
         this.setState({ childToSend })
-        console.log(this.state)
     }
 
 

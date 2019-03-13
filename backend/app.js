@@ -1,21 +1,21 @@
 require('dotenv').config();
 
-const bodyParser   = require('body-parser');
+const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const express      = require('express');              
-const mongoose     = require('mongoose');
-const logger       = require('morgan');
-const path         = require('path');
-const session      = require('express-session');
-const passport     = require('./helpers/passport')
-const MongoStore   = require('connect-mongo')(session)
-const cors         = require('cors')
+const express = require('express');
+const mongoose = require('mongoose');
+const logger = require('morgan');
+const path = require('path');
+const session = require('express-session');
+const passport = require('./helpers/passport')
+const MongoStore = require('connect-mongo')(session)
+const cors = require('cors')
 
 const { isRole } = require("./helpers/middlewares");
 const { isActive } = require("./helpers/middlewares");
 
 mongoose
-  .connect(process.env.DB, {useCreateIndex:true, useNewUrlParser: true})
+  .connect(process.env.DB, { useCreateIndex: true, useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].db.databaseName}"`)
   })
@@ -54,12 +54,12 @@ app.use(session({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
   })
- }));
+}));
 
 
 
 
- //passport config
+//passport config
 app.use(passport.initialize())
 app.use(passport.session())
 

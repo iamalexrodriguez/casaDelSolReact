@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../models/User");
 const passport = require("passport");
 const uploadCloud = require("../helpers/cloudinary");
+const path = require('path')
 
 const { sendNewMail } = require('../helpers/mailer')
 
@@ -43,14 +44,14 @@ router.post("/sendnewmail", (req, res, next) => {
 
 router.post("/updateuser", (req, res, next) => {
 
-  let {_id} = req.body.user
+  let { _id } = req.body.user
   User.findByIdAndUpdate(_id, req.body.user)
-        .then((r) => {
-          res.status(200).json(r)
-        })
-        .catch(
-          e => console.log(e)
-        )
+    .then((r) => {
+      res.status(200).json(r)
+    })
+    .catch(
+      e => console.log(e)
+    )
 })
 
 
@@ -121,4 +122,13 @@ router.get("/logout", isAuth, (req, res, next) => {
     }
   });
 });
+
+
+router.get("/*", (req, res) => {
+  //let i = path.join(__dirname, '../public/index.html')
+  //console.log(i)
+  //res.send(`${i}`)
+  res.sendFile(path.join(__dirname, '../public/index.html'))
+})
+
 module.exports = router;

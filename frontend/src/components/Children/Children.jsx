@@ -90,7 +90,6 @@ export default class Children extends Component {
     render() {
         let { children } = this.state
         let {username} = this.props.user
-        console.log(children.sponsoredChildren)
         if(children.sponsoredChildren.length === 0) return <div style={messageStyle}> <h1>Aún no tienes ahijados</h1></div>
         return (
             <div>

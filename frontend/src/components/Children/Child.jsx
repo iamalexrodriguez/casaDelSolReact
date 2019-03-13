@@ -21,7 +21,7 @@ class Child extends Component {
     render() {
         let { name, profilePic } = this.props
         let { open, customGallery, current } = this.state
-        console.log(this.state)
+
         return (
             <div>
                 <div>
