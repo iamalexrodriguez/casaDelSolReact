@@ -42,8 +42,15 @@ class Child extends Component {
                         }}
                     />
 
+                    <br/>
+
+                    <div style={kidSyle}>
                     <img onClick={() => this.setState({ open: true })} style={imageStyle} src={profilePic} alt="photochild" />
+                    <br/><br/>
                     <h2 styles={nameStyle}>{name} </h2>
+                    </div>
+
+
                 </div>
             </div>
         )
@@ -63,4 +70,9 @@ const imageStyle ={
 
 const nameStyle = {
     padding:"20px"
+}
+
+const kidSyle={
+    width:"30vw",
+    textAlign:"center"
 }

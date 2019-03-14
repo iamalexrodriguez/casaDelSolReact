@@ -96,6 +96,7 @@ export default class Children extends Component {
         if (children.sponsoredChildren.length === 0) return <div style={messageStyle}> <h1>Aún no tienes ahijados</h1></div>
         return (
             <div style={containerStyle}>
+                <br/>
                 <h1>¡Bienvenido, {username}!  </h1>
                 <Affix offsetTop={this.state.top}>
                 <div style={{ float: "right" }}>
@@ -121,6 +122,6 @@ let messageStyle = {
 }
 
 let containerStyle = {
-    paddingLeft:"20px"
+    paddingLeft:"5%"
 }
 

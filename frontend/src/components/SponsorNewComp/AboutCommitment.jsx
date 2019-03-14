@@ -7,7 +7,8 @@ function AboutCommitment({ onClick, handleStep3, onSubmit }) {
     <div>
       <h4>¿Si fueras a escribir un par de compromisos con tu nuevo ahijado cuales serían?</h4>
       <TextArea rows={4} type="text" name="text" onChange={handleStep3} />
-      <Button onClick={onSubmit} message={'Listo'}>Finalizar</Button>
+      <br/> <br/>
+      <Button onClick={onSubmit} message={'Listo'} type="primary" ghost>Finalizar</Button>
     </div>
   )
 }
