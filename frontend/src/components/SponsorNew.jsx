@@ -97,33 +97,49 @@ class App extends Component {
 
     render() {
         const { current, steps } = this.state
+        
         return (
-            <div
-                style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    width: '100vw',
-                    height: '100vh',
-                    padding: '10%',
-                    flexDirection: 'column'
-                }}
-            >
 
-                <Slide down>
-                <Steps current={current}>
-                    {steps.map(step => (
-                        <Steps.Step key={step.title} title={step.title} />
-                    ))}
-                </Steps>
+            <div>
+                    <div
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            width: '100vw',
+                            height: '90vh',
+                            padding: '20%',
+                            flexDirection: 'column'
+                        }}
+                    >
+
+                        <Slide down>
+                        <Steps current={current}>
+                            {steps.map(step => (
+                                <Steps.Step key={step.title} title={step.title} />
+                            ))}
+                        </Steps>
+                        </Slide>
+                        <br/>
 
 
-                {current === 0 && steps[current].content()}
-                {current === 1 && steps[current].content()}
-                {current === 2 && steps[current].content()}
-                </Slide>
+                        {current === 0 && steps[current].content()}
+                        {current === 1 && steps[current].content()}
+                        {current === 2 && steps[current].content()}
+
+                    </div>
+                        <div style={footerStyle}>
+                            . 
+                        </div>
             </div>
         )
     }
 }
 
 export default App
+
+
+let footerStyle ={
+    background:"#0297FF",
+    height:"10vh"
+}
+
