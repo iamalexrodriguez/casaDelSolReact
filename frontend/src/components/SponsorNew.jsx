@@ -115,12 +115,12 @@ class App extends Component {
                         <Steps.Step key={step.title} title={step.title} />
                     ))}
                 </Steps>
-                </Slide>
 
 
                 {current === 0 && steps[current].content()}
                 {current === 1 && steps[current].content()}
                 {current === 2 && steps[current].content()}
+                </Slide>
             </div>
         )
     }
