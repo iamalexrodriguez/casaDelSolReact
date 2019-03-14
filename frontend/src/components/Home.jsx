@@ -1,8 +1,8 @@
 import React from 'react'
 import { Carousel, Row, Col, Timeline } from 'antd';
 import Fade from 'react-reveal/Fade'
-let imageSrc1 = "https://res.cloudinary.com/alexrodriguezcloud/image/upload/v1552525299/reactCasaDelSol/banner/robert-collins-341231-unsplash.jpg"
-let imageSrc2 = "https://res.cloudinary.com/alexrodriguezcloud/image/upload/v1552525299/reactCasaDelSol/banner/KINDER_27.jpg"
+let imageSrc2 = "https://res.cloudinary.com/alexrodriguezcloud/image/upload/v1552525299/reactCasaDelSol/banner/robert-collins-341231-unsplash.jpg"
+let imageSrc1 = "https://res.cloudinary.com/alexrodriguezcloud/image/upload/v1552525299/reactCasaDelSol/banner/KINDER_27.jpg"
 let imageSrc3 = "https://res.cloudinary.com/alexrodriguezcloud/image/upload/v1552525299/reactCasaDelSol/banner/01_HP_UNI158415_Bluewash_WEB.jpg"
 let imageSrc4 = "https://res.cloudinary.com/alexrodriguezcloud/image/upload/v1552525299/reactCasaDelSol/banner/-UNICEF_UNI178927_Ramos_1600x900_0.jpg"
 let mPadSrc = "https://res.cloudinary.com/alexrodriguezcloud/image/upload/v1552527784/reactCasaDelSol/banner/modelo_padrino.png"
@@ -12,8 +12,8 @@ export default () => (
           
            
             <Carousel style={styleCar} autoplay>
-                <div><img src={imageSrc1} style={{width:"100vw", height:"40vw"}} alt="banner1"/></div>
-                <div><img src={imageSrc2} style={{width:"100vw", height:"40vw"}} alt="banner2"/></div>
+                <div><img src={imageSrc1} style={{width:"100vw", height:"40vw"}} alt="banner2"/></div>
+                <div><img src={imageSrc2} style={{width:"100vw", height:"40vw"}} alt="banner1"/></div>
                 <div><img src={imageSrc3} style={{width:"100vw", height:"40vw"}} alt="banner3"/></div>
                 <div><img src={imageSrc4} style={{width:"100vw", height:"40vw"}} alt="banner4"/></div>
             </Carousel>,
@@ -51,7 +51,7 @@ export default () => (
 
                 <Col style={paddingColRight}  xs={7} sm={7} md={6} lg={8} xl={8}>
                 <br/>
-                <h3>.. un <strong>buen desarrollo </strong> cerebral en la infancia</h3>
+                <h3>.. un <strong>buen desarrollo </strong> cerebral en la infancia:</h3>
                 <br/><br/>
 
                 <Timeline style={{paddingRight:"8%"}} mode="left">

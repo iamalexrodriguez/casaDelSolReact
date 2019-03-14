@@ -4,10 +4,12 @@ import Child from './Child';
 import Awards from '../Awards/Awards'
 import NewMail from '../Forms/NewMail'
 import NewVisit from '../Forms/NewVisit'
+import Fade from 'react-reveal/Fade'
 import { Button, Affix } from 'antd'
 
 // let url = "http://localhost:3000/children/sponsoredchildren"
 let urlDeploy = "https://casadelsolpueblareact.herokuapp.com/children/sponsoredchildren"
+let loadingUrl = "https://file.mockplus.com/image/2018/04/fd090666-6441-43a1-9d19-9460c34d434e.gif"
 
 export default class Children extends Component {
     state = {
@@ -43,11 +45,12 @@ export default class Children extends Component {
         if (displayAwards === true) {
             return (<Awards children={children} toggleDisplayAwards={this.toggleDisplayAwards} user={this.props.user} />)
         } else {
-            return <Button type="primary" styles={{ height: "50px" }} size={"large"} onClick={this.toggleDisplayAwards}>Ver awards</Button>
+            return <Button type="primary" styles={{ height: "50px"}} size={"large"} onClick={this.toggleDisplayAwards}>Ver awards</Button>
         }
 
     }
 
+  
 
     toggleDisplayMail = () => {
         let { displayMail } = this.state
@@ -85,6 +88,19 @@ export default class Children extends Component {
     }
 
     showNoKids = () => {
+        return (
+            <div style={containerLoaderStyle}>
+                    <img style={loadingStyle} src={loadingUrl} alt="loading"/>
+                    <h1 style={{color:"#0d5a7c", textAlign:"center"}}>Porfavor, llena el formulario para apadrinar a un nuevo niño.</h1>
+
+                    <section style={sectionStyles}>
+                        <Fade bottom>
+                            <h1 style={{color:"white"}}>Aún no tienes ahijados</h1>
+                        </Fade>
+                        </section>
+                        <p style={{textAlign:"left", color:"darkgrey"}}>Imagen por Ramotion</p>
+            </div>
+        )
 
     }
 
@@ -93,11 +109,11 @@ export default class Children extends Component {
     render() {
         let { children } = this.state
         let { username } = this.props.user
-        if (children.sponsoredChildren.length === 0) return <div style={messageStyle}> <h1>Aún no tienes ahijados</h1></div>
+        if (children.sponsoredChildren.length === 0) return this.showNoKids()
         return (
             <div style={containerStyle}>
                 <br/>
-                <h1>¡Bienvenido, {username}!  </h1>
+                <h1 style={{color:"#0d5a7c"}} >¡Bienvenido, {username}!  </h1>
                 <Affix offsetTop={this.state.top}>
                 <div style={{ float: "right" }}>
                     {this.drawDisplayAwards()}
@@ -116,12 +132,28 @@ export default class Children extends Component {
     }
 }
 
+let loadingStyle={
+    filter: "invert(100%)"
+}
 
-let messageStyle = {
-    textAlign: "center"
+let containerLoaderStyle={
+    display:"flex",
+    alignItems:"center",
+    flexDirection:"column",
+    textAlign:"center",
 }
 
 let containerStyle = {
     paddingLeft:"5%"
 }
 
+
+const sectionStyles = {
+    color: "#FFFFFF",
+    textAlign: "center",
+    paddingTop:"10px",
+    fontSize: "200%",
+    boxShadow: "0px 10px 5px -5px rgba(0,0,0,0.07)",
+    background: "#ff9800",
+    width:"100vw"
+}

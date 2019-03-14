@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Lightbox from 'react-images'
-import Slide from 'react-reveal/Slide'
 
 class Child extends Component {
 
@@ -69,7 +68,8 @@ const imageStyle ={
 }
 
 const nameStyle = {
-    padding:"20px"
+    padding:"20px",
+    color:"red"
 }
 
 const kidSyle={

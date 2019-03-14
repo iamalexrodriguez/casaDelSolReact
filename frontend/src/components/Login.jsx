@@ -38,6 +38,12 @@ class Login extends React.Component {
         />
         <p style={{ color: "red" }}> {message} </p>
         <br />
+        <div style={{textAlign:"left", color:"darkgrey"}}>
+        <p> Cuenta demo: </p>
+        <p> Mail: <strong>demo@ironhack.com</strong> </p>
+        <p> Pass: <i>123</i></p>
+        </div>
+        <br/>
         <Button style={{}}onClick={() => this.props.logIn(auth)}>Log in</Button>
         </form>
         </div>
