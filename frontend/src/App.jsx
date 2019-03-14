@@ -128,13 +128,13 @@ class App extends Component {
     return (
       <div>
           <Affix offsetTop={this.state.top} >
-          <div style={background}>
-          {this.drawNavs()}
-              <img src="https://res.cloudinary.com/alexrodriguezcloud/image/upload/v1552451448/casaDelSol/Logo-Casa-del-Sol-jpg_1.png" style={imageStyle} alt="logo"/>
-          </div>
+            <div style={background}>
+            {this.drawNavs()}
+                <img src="https://res.cloudinary.com/alexrodriguezcloud/image/upload/v1552451448/casaDelSol/Logo-Casa-del-Sol-jpg_1.png" style={imageStyle} alt="logo"/>
+            </div>
           </Affix>
 
-              <Routes isLogged={isLogged} logIn={this.logIn} logOut={this.logOut} user={user} />
+          <Routes isLogged={isLogged} logIn={this.logIn} logOut={this.logOut} user={user} />
 
       </div>
     );

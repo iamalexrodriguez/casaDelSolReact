@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Cascader, Button } from 'antd'
+import { Input, Cascader, Button, Icon } from 'antd'
 import toastr from 'toastr'
 import axios from 'axios'
 import Slide from 'react-reveal/Slide'
@@ -74,7 +74,7 @@ class NewMail extends Component {
                 <br/>
                 <p>Tu mensaje:</p>
                 <TextArea placeholder="Tus ahijados" autosize={{ minRows: 2, maxRows: 20 }} />
-                <Button onClick={this.onSubmit} type="primary" ghost>Enviar</Button>
+                <Button onClick={this.onSubmit} type="primary" ghost>Enviar <Icon type="message" /></Button>
                 </form>
                 </Slide>
 
