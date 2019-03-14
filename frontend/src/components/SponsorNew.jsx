@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Steps } from 'antd'
 import toastr from 'toastr'
 import axios from 'axios'
+import Slide from 'react-reveal/Slide'
 import AboutYou from './SponsorNewComp/AboutYou';
 import AboutChild from './SponsorNewComp/AboutChild'
 import AboutCommitment from './SponsorNewComp/AboutCommitment'
@@ -107,11 +108,16 @@ class App extends Component {
                     flexDirection: 'column'
                 }}
             >
+
+                <Slide down>
                 <Steps current={current}>
                     {steps.map(step => (
                         <Steps.Step key={step.title} title={step.title} />
                     ))}
                 </Steps>
+                </Slide>
+
+
                 {current === 0 && steps[current].content()}
                 {current === 1 && steps[current].content()}
                 {current === 2 && steps[current].content()}

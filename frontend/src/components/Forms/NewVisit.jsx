@@ -3,6 +3,7 @@ import { DatePicker, Button} from 'antd'
 import toastr from 'toastr'
 import axios from 'axios'
 import locale from 'antd/lib/date-picker/locale/es_ES';
+import Slide from 'react-reveal/Slide'
 // let updateUrl = "http://localhost:3000/updateuser"
 
 const updateurldeploy = "https://casadelsolpueblareact.herokuapp.com/private"
@@ -38,13 +39,26 @@ class NewVisit extends Component{
     render(){
         return(
             <div>
+                <Slide collapse right>
+                <form style={formStyle} action="">
                 <h2>¡Programa tu visita!</h2>
+                <p>¿Cuando te gustaría visitarnos?</p>
                 <DatePicker locale={locale} onChange={this.onChange} />
-                <Button onClick={this.onSubmit}>Enviar</Button>
+                <Button onClick={this.onSubmit} type="primary" ghost>Enviar</Button>
+                </form>
+                </Slide>
             </div>
         )
     }
 }
 
+
+let formStyle = {
+    paddingTop:"20px",
+    paddingRight:"40px",
+    flexWrap: "wrap",
+    width:"30vw"
+
+  }
 
 export default NewVisit

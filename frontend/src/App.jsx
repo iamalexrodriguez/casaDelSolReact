@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Routes from "./Routes.jsx";
 import { NavLink } from "react-router-dom";
+import {Affix} from 'antd'
 import axios from "axios";
 import './App.css';
 // let loginUrl = "http://localhost:3000/login";
@@ -18,7 +19,8 @@ const urldeploy = "https://casadelsolpueblareact.herokuapp.com/private"
 class App extends Component {
   state = {
     isLogged: false,
-    user: {}
+    user: {},
+    top: 0
   };
 
   checkLogged = () => {
@@ -39,43 +41,43 @@ class App extends Component {
     if (isLogged) {
       return (
         <div style={navStyle}>
-          <NavLink activeStyle={{ fontWeight: "bolder" }} exact to="/">
+          <NavLink style={{color:"#0d5a7c"}} activeStyle={{ fontWeight: "bolder" }} exact to="/">
             Home
           </NavLink>
 
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: "bolder" }} to="/sponsornew">
+          <NavLink style={{color:"#0d5a7c"}} activeStyle={{ fontWeight: "bolder" }} to="/sponsornew">
             Apadrinar a un niño
           </NavLink>
 
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: "bolder" }} to="/children">
+          <NavLink style={{color:"#0d5a7c"}} activeStyle={{ fontWeight: "bolder" }} to="/children">
             Ahijados
           </NavLink>
 
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: "bolder" }} to="/profile">
+          <NavLink style={{color:"#0d5a7c"}} activeStyle={{ fontWeight: "bolder" }} to="/profile">
             Perfil
           </NavLink>
 
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: "bolder" }} to="/logout">
-            Sign Out
+          <NavLink style={{color:"#0d5a7c"}} activeStyle={{ fontWeight: "bolder" }} to="/logout">
+            Salir
           </NavLink>
         </div>
       );
     } else {
       return (
         <nav style={navStyle}>
-          <NavLink activeStyle={{ fontWeight: "bolder" }} exact to="/">
+          <NavLink style={{color:"#0d5a7c"}} activeStyle={{ fontWeight: "bolder" }} exact to="/">
             Home
           </NavLink>
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: "bolder" }} to="/login">
+          <NavLink style={{color:"#0d5a7c"}} activeStyle={{ fontWeight: "bolder" }} to="/login">
             Login
           </NavLink>
           <span> | </span>
-          <NavLink activeStyle={{ fontWeight: "bolder" }} to="/signup">
+          <NavLink style={{color:"#0d5a7c"}} activeStyle={{ fontWeight: "bolder" }} to="/signup">
             Signup
           </NavLink>
         </nav>
@@ -125,12 +127,15 @@ class App extends Component {
 
     return (
       <div>
-          <div>
+          <Affix offsetTop={this.state.top} >
+          <div style={background}>
           {this.drawNavs()}
               <img src="https://res.cloudinary.com/alexrodriguezcloud/image/upload/v1552451448/casaDelSol/Logo-Casa-del-Sol-jpg_1.png" style={imageStyle} alt="logo"/>
+          </div>
+          </Affix>
+
               <Routes isLogged={isLogged} logIn={this.logIn} logOut={this.logOut} user={user} />
 
-          </div>
       </div>
     );
   }
@@ -141,13 +146,17 @@ export default App;
 
 
 let navStyle ={
-  padding:"10px",
-  float:"right"
+  paddingTop:"20px",
+  float:"right",
+}
 
+let background={
+  backgroundColor:"white",
+  boxShadow: "0px 10px 5px -5px rgba(0,0,0,0.07)",
+  paddingRight:"10px"
 }
 
 let imageStyle={
   height:"55px",
   padding:"5px"
-
 }

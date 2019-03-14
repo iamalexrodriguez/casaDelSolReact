@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Input, Cascader, Button } from 'antd'
 import toastr from 'toastr'
 import axios from 'axios'
+import Slide from 'react-reveal/Slide'
 // let url = "http://localhost:3000/children/childrenAll"
 // let updateUrl = "http://localhost:3000/updateuser"
 let urlDeploy = "https://casadelsolpueblareact.herokuapp.com/children/childrenAll"
@@ -65,6 +66,7 @@ class NewMail extends Component {
 
         return (
             <div  >
+                <Slide right>
                 <form style={formStyle}>
                 <p>¿A quién le damos tu mensaje?</p>
                 <br/>
@@ -73,8 +75,8 @@ class NewMail extends Component {
                 <p>Tu mensaje:</p>
                 <TextArea placeholder="Tus ahijados" autosize={{ minRows: 2, maxRows: 20 }} />
                 <Button onClick={this.onSubmit} type="primary" ghost>Enviar</Button>
-
                 </form>
+                </Slide>
 
             </div>
         )

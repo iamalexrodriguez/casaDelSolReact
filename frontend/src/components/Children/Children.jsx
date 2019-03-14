@@ -4,7 +4,8 @@ import Child from './Child';
 import Awards from '../Awards/Awards'
 import NewMail from '../Forms/NewMail'
 import NewVisit from '../Forms/NewVisit'
-import { Button } from 'antd'
+import { Button, Affix } from 'antd'
+
 // let url = "http://localhost:3000/children/sponsoredchildren"
 let urlDeploy = "https://casadelsolpueblareact.herokuapp.com/children/sponsoredchildren"
 
@@ -14,6 +15,7 @@ export default class Children extends Component {
         displayAwards: false,
         displayMail: false,
         displayDates: false,
+        top: 30
     }
 
     componentDidMount() {
@@ -93,13 +95,15 @@ export default class Children extends Component {
         let { username } = this.props.user
         if (children.sponsoredChildren.length === 0) return <div style={messageStyle}> <h1>Aún no tienes ahijados</h1></div>
         return (
-            <div>
+            <div style={containerStyle}>
                 <h1>¡Bienvenido, {username}!  </h1>
+                <Affix offsetTop={this.state.top}>
                 <div style={{ float: "right" }}>
                     {this.drawDisplayAwards()}
                     {this.drawDisplayMail()}
                     {this.drawDisplayDates()}
                 </div>
+                </Affix>
                 <div>
 
                     {children.sponsoredChildren.map(this.drawChild)}
@@ -115,3 +119,8 @@ export default class Children extends Component {
 let messageStyle = {
     textAlign: "center"
 }
+
+let containerStyle = {
+    paddingLeft:"20px"
+}
+

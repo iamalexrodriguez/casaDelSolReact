@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Button} from 'antd'
+import Pulse from 'react-reveal/Pulse'
 // const url = "http://localhost:3000/children/badgesAll"
 let urlDeploy = "https://casadelsolpueblareact.herokuapp.com/children/badgesAll"
 
@@ -53,9 +54,9 @@ export default class Awards extends Component {
 
             return <div style={badgeStyle} key={key}>
                 <h3>{badge.title}</h3>
-
+                <Pulse>
                 <img src={badge.photoUrl} alt="badgeImage" style={styles} />
-
+                </Pulse>
             </div>
         })
     }
@@ -65,7 +66,9 @@ export default class Awards extends Component {
     render() {
         return (
             <div style={{display:"flex"}}>
+              
                 {this.drawBadges()}
+                
                 <Button type="primary" onClick={this.props.toggleDisplayAwards} ghost>Ocultar</Button>
             </div>
         )

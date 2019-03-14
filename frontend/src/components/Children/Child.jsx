@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Lightbox from 'react-images'
+import Slide from 'react-reveal/Slide'
 
 class Child extends Component {
 
@@ -40,6 +41,7 @@ class Child extends Component {
                             this.setState({ current: c })
                         }}
                     />
+
                     <img onClick={() => this.setState({ open: true })} style={imageStyle} src={profilePic} alt="photochild" />
                     <h2 styles={nameStyle}>{name} </h2>
                 </div>
